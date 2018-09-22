@@ -29,7 +29,7 @@ def parent_login():
                 'User-Agent': 'æå¿å®è´ 3.9.3 rv:5 (iPhone; iOS 12.0; zh_CN)',
                 'Accept': 'application/json',
                 'Host':'120.27.83.33',
-                'User-Identity':Identity,
+                'User-Identity':parent['Identity'],
                 'Mobile-Name': '%E2%80%9CChengxianlong%E2%80%9D%E7%9A%84%20iPhone',
                 'Accept-Encoding': 'gzip',
               }
@@ -39,7 +39,7 @@ def parent_login():
 
     
     lgoin_url = "https://120.27.83.33/openuser/userlogin?type=parent&username=%s&userpassword=%s" %(parents_username,parents_password)
-    login_post = {"type":"parent","username":parents_username,"userpassword":parents_password}
+    login_post = {"type":"parent","username":parent['parents_username'],"userpassword":['parents_password']}
     resp = session.post(lgoin_url, login_post,verify=False)
     print(resp.text)
 
@@ -88,8 +88,13 @@ def parent_share():
     print(resp.text) 
 
 
-if __name__ == '__main__':
-    parent_login()
+def add_flower(parent)
+    parent_login(parent)
     parent_sign()
     for i in [0,1,2]:
         parent_share()
+
+
+if __name__ == '__main__':
+    add_flower(parent_list[0])
+    add_flower(parent_list[1])
