@@ -7,7 +7,7 @@ import json
 
 
 
-parent_list[] = []
+parent_list = []
 parent['parents_username'] = os.getenv('parents_username1')
 parent['parents_password'] = os.getenv('parents_password1')
 parent['Identity'] = os.getenv('Identity1')
