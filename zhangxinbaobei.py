@@ -8,19 +8,21 @@ import json
 
 
 parent_list = []
+parent = {}
+
 parent['parents_username'] = os.getenv('parents_username1')
 parent['parents_password'] = os.getenv('parents_password1')
 parent['Identity'] = os.getenv('Identity1')
-parent_list.add(parent)
+parent_list.append(parent)
 
 parent['parents_username'] = os.getenv('parents_username2')
 parent['parents_password'] = os.getenv('parents_password2')
 parent['Identity'] = os.getenv('Identity2')
-parent_list.add(parent)
+parent_list.append(parent)
 
 session = requests.Session()
 
-def parent_login():
+def parent_login(parent):
 
 
 
@@ -38,8 +40,8 @@ def parent_login():
     session.headers.update(headers)
 
     
-    lgoin_url = "https://120.27.83.33/openuser/userlogin?type=parent&username=%s&userpassword=%s" %(parents_username,parents_password)
-    login_post = {"type":"parent","username":parent['parents_username'],"userpassword":['parents_password']}
+    lgoin_url = "https://120.27.83.33/openuser/userlogin?type=parent&username=%s&userpassword=%s" %(parent['parents_username'],parent['parents_password'])
+    login_post = {"type":"parent","username":parent['parents_username'],"userpassword":parent['parents_password']}
     resp = session.post(lgoin_url, login_post,verify=False)
     print(resp.text)
 
@@ -88,7 +90,7 @@ def parent_share():
     print(resp.text) 
 
 
-def add_flower(parent)
+def add_flower(parent):
     parent_login(parent)
     parent_sign()
     for i in [0,1,2]:
